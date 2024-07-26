@@ -1,6 +1,6 @@
 ---
 global:
-  pattern: multicloud-gitops
+  pattern: hive
   options:
     useCSV: false
     syncPolicy: Automatic
