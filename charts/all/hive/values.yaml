@@ -5,7 +5,7 @@
 # ExternalSecrets and Vault Configuration
 secretStore:
   name: vault-backend
-  kind: clusterSecretStore
+  kind: ClusterSecretStore
 
 # AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY for creating aws resources
 awsCredentials:
