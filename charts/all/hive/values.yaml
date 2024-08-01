@@ -2,12 +2,30 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
+# ExternalSecrets and Vault Configuration
+secretStore:
+  name: vault-backend
+  kind: clusterSecretStore
+
+# AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY for creating aws resources
+awsCredentials:
+  key: secret/data/hub/awsCredentials
+
+# Create a global pullSecret for all cluster deployments
+globalPullSecret:
+  key: secret/data/hub/globalPullSecret
+
+# Create an individual pullSecret for namespaced resources
+pullSecret:
+  key: secret/data/hub/pullSecret
+
+# Hive Cluster Deployment Configuration
+hive:
 # Should we create a global pull secret for creating clusters
 # or use namespaced pullsecrets
-createGlobalPullSecret: false
-
-# Global Pull Secret default to `global-pull-secret`
-# Provide the name of the pull secret
-pullSecretName: ''
-
+  createGlobalPullSecret: false
+# The cluster name needs to be unique
+  clusterName: mydemo
+# Which cloud are we deploying to
+  cloud: aws
 
