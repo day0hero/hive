@@ -9,15 +9,15 @@ secretStore:
 
 # AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY for creating aws resources
 awsCredentials:
-  key: secret/data/hub/awsCredentials
+  key: secret/hub/awsCredentials
 
 # Create a global pullSecret for all cluster deployments
 globalPullSecret:
-  key: secret/data/hub/globalPullSecret
+  key: secret/hub/globalPullSecret
 
 # Create an individual pullSecret for namespaced resources
 pullSecret:
-  key: secret/data/hub/pullSecret
+  key: secret/hub/pullSecret
 
 # Hive Cluster Deployment Configuration
 hive:
