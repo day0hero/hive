@@ -34,6 +34,11 @@ clusterGroup:
   #   - '/overrides/values-{{ $.Values.global.hubClusterDomain }}.yaml'
   #   - '/overrides/values-{{ $.Values.global.localClusterDomain }}.yaml'
   applications:
+    hive:
+      name: hive
+      namespace: hive
+      project: hive
+      path: charts/all/hive
 #    acm:
 #      name: acm
 #      namespace: open-cluster-management
