@@ -1,7 +1,11 @@
+{{- if not .Values.hive.createGlobalPullSecret }}
+{{- $ns := print "clusters-" .Values.hive.clusterName }}
 apiVersion: hive.openshift.io/v1
 kind: ClusterImageSet
 metadata:
   name: {{ .Values.hive.clusterName }}-imageset
+  namespace: {{ default "hive" $ns }}
 spec:
   releaseImage: quay.io/openshift-release-dev/ocp-release:4.16.5-x86_64
 status: {}
+{{- end }}

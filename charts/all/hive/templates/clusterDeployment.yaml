@@ -1,14 +1,12 @@
+{{- if not .Values.hive.createGlobalPullSecret }}
+{{- $ns := print "clusters-" .Values.hive.clusterName }}
 apiVersion: hive.openshift.io/v1
 kind: ClusterDeployment
 metadata:
   labels:
     hive.openshift.io/hiveutil-created: "true"
   name: {{ .Values.hive.clusterName }}
-{{- if .Values.hive.createGlobalPullSecret }}
-  namespace: hive
-{{- else }}
-  namespace: {{ default "hive" .Values.hive.clusterNameSpace }}
-{{- end }}
+  namespace: {{ default "hive" $ns }}
 spec:
   baseDomain: aws.validatedpatterns.io
   clusterName: {{ .Values.hive.clusterName }}
@@ -28,3 +26,4 @@ spec:
     installConfigSecretRef:
       name: {{ .Values.hive.clusterName }}-install-config
 status: {}
+{{- end }}

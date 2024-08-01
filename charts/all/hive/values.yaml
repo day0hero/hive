@@ -28,4 +28,7 @@ hive:
   clusterName: mydemo
 # Which cloud are we deploying to
   cloud: aws
-
+# Define the machineType
+  machineType: m5.xlarge
+# Machine replicas
+  replicas: 1

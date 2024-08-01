@@ -1,8 +1,12 @@
+{{- if not .Values.hive.createGlobalPullSecret }}
+{{- $ns := print "clusters-" .Values.hive.clusterName }}
+---
 apiVersion: hive.openshift.io/v1
 kind: MachinePool
 metadata:
   creationTimestamp: null
   name: {{ .Values.hive.clusterName}}-worker
+  namespace: {{ default "hive" $ns }}
 spec:
   clusterDeploymentRef:
     name: {{ .Values.hive.clusterName }}
@@ -15,3 +19,4 @@ spec:
       type: {{ .Values.hive.machineType }}
   replicas: {{ .Values.hive.replicas }}
 status: {}
+{{- end }}
