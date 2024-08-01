@@ -17,7 +17,7 @@ globalPullSecret:
 
 # Create an individual pullSecret for namespaced resources
 pullSecret:
-  key: secret/data//hub/pullSecret
+  key: secret/data/hub/pullSecret
 
 # Hive Cluster Deployment Configuration
 hive:
