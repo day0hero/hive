@@ -4,14 +4,15 @@ clusterGroup:
   namespaces:
     - vault
     - golang-external-secrets
+    - hive
   subscriptions:
-#    acm:
-#      name: advanced-cluster-management
-#      namespace: open-cluster-management
-#      channel: release-2.10
-#      #csv: advanced-cluster-management.v2.6.1
+    hive:
+      name: hive-operator
+      namespace: hive
+      source: community-operators
   projects:
     - hub
+    - hive
   # Explicitly mention the cluster-state based overrides we plan to use for this pattern.
   # We can use self-referential variables because the chart calls the tpl function with these variables defined
   sharedValueFiles:
